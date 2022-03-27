@@ -1,4 +1,5 @@
 package com;
+
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.specification.RequestSpecification;
 
@@ -13,5 +14,4 @@ public class Base {
                 .setBaseUri(BASE_URL)
                 .build();
     }
-
 }
