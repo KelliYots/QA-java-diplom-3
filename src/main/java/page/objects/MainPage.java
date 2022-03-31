@@ -1,40 +1,42 @@
-package PageObjects;
+package page.objects;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
+import lombok.Getter;
 import org.openqa.selenium.support.FindBy;
 
 import static com.codeborne.selenide.Condition.*;
 
+@Getter
 public class MainPage {
 
     public static String BASE_URL = "https://stellarburgers.nomoreparties.site";
 
     @FindBy(xpath = ".//span[text()='Начинки']")
-    public SelenideElement fills;
+    private SelenideElement fills;
 
     @FindBy(xpath = ".//p[text()='Мясо бессмертных моллюсков Protostomia']")
-    public SelenideElement fillsMeat;
+    private SelenideElement fillsMeat;
 
     @FindBy(xpath = ".//button[text()='Оформить заказ']")
-    public SelenideElement orderButton;
+    private SelenideElement orderButton;
 
     @FindBy(xpath = ".//p[text()='Конструктор']")
-    public SelenideElement constructor;
+    private SelenideElement constructor;
 
     @FindBy(xpath = ".//button[text()='Войти в аккаунт']")
-    public SelenideElement logInAccount;
+    private SelenideElement logInAccount;
 
     @FindBy(xpath = ".//p[text()='Личный Кабинет']")
-    public SelenideElement personalAccount;
+    private SelenideElement personalAccount;
 
     @FindBy(xpath = ".//a[@href='/']")
-    public SelenideElement stellar;
+    private SelenideElement stellar;
 
     @FindBy(xpath = ".//span[text()='Соусы']")
-    public SelenideElement souses;
+    private SelenideElement souses;
 
     @FindBy(xpath = ".//span[text()='Булки']")
-    public SelenideElement buns;
+    private SelenideElement buns;
 
     @Step("Кнопка заказа видна")
     public boolean isOrderButtonVisible() {

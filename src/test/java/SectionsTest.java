@@ -1,5 +1,5 @@
-import PageObjects.LoginPage;
-import PageObjects.MainPage;
+import page.objects.LoginPage;
+import page.objects.MainPage;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.After;
 import org.junit.Before;

@@ -1,6 +1,6 @@
-import PageObjects.LoginPage;
-import PageObjects.MainPage;
-import PageObjects.RegisterPage;
+import page.objects.LoginPage;
+import page.objects.MainPage;
+import page.objects.RegisterPage;
 import io.qameta.allure.junit4.DisplayName;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.After;
@@ -57,7 +57,7 @@ public class RegistrationTest {
         page(RegisterPage.class)
                 .setName(name)
                 .sendEmail(email)
-                .sendPassword("123")
+                .sendPassword("StopWarInUkraine")
                 .clickRegister();
         final boolean isRegisteredError = page(RegisterPage.class)
                 .registrationError();

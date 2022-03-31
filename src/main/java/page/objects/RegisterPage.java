@@ -1,27 +1,29 @@
-package PageObjects;
+package page.objects;
 
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
+import lombok.Getter;
 import org.openqa.selenium.support.FindBy;
 
 import static com.codeborne.selenide.Condition.enabled;
 import static com.codeborne.selenide.Condition.visible;
 
+@Getter
 public class RegisterPage {
     @FindBy(xpath = ".//input[@type='text']")
-    public SelenideElement namePlace;
+    private SelenideElement namePlace;
 
     @FindBy(xpath = "//*[@id=\"root\"]/div/main/div/form/fieldset[2]/div/div/input")
-    public SelenideElement emailPlace;
+    private SelenideElement emailPlace;
 
     @FindBy(xpath = ".//input[@name='Пароль']")
-    public SelenideElement password;
+    private SelenideElement password;
 
     @FindBy(xpath = ".//button[text()='Зарегистрироваться']")
-    public SelenideElement registrationButton;
+    private SelenideElement registrationButton;
 
     @FindBy(xpath = ".//p[@class='input__error text_type_main-default']")
-    public SelenideElement registrationError;
+    private SelenideElement registrationError;
 
     @Step("Ввод имени")
     public RegisterPage setName(String name){
@@ -29,7 +31,7 @@ public class RegisterPage {
         return this;
     }
 
-    @Step("Ввод емейла")
+    @Step("Ввод email")
     public RegisterPage sendEmail(String email){
         emailPlace.setValue(email);
         return this;
@@ -47,7 +49,7 @@ public class RegisterPage {
         return this;
     }
 
-    @Step("Сообще об ошибке регстрации видна")
+    @Step("Сообщение об ошибке регстрации видна")
     public boolean registrationError(){
         return registrationError.is(visible);
     }

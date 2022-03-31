@@ -1,19 +1,20 @@
-package PageObjects;
+package page.objects;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
+import lombok.Getter;
 import org.openqa.selenium.support.FindBy;
 
-import static com.codeborne.selenide.Condition.*;
-
+@Getter
 public class AccountPage {
 
     @FindBy(xpath = ".//button[@type='button']")
-    public SelenideElement exitButton;
+    private SelenideElement exitButton;
 
     @Step("Клик по кнопке выход")
     public AccountPage exitButtonClick(){
-        exitButton.shouldBe(enabled);
+        exitButton.shouldBe(Condition.enabled);
         exitButton.click();
         return this;
     }

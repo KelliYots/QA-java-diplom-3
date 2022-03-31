@@ -1,36 +1,38 @@
-package PageObjects;
+package page.objects;
 
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
+import lombok.Getter;
 import org.openqa.selenium.support.FindBy;
 
 import static com.codeborne.selenide.Condition.*;
 
+@Getter
 public class LoginPage {
 
     @FindBy(xpath = ".//a[@href='/register']")
-    public SelenideElement registrationButtonLink;
+    private SelenideElement registrationButtonLink;
 
     @FindBy(xpath = ".//input[@name='name']")
-    public SelenideElement emailPlaceOnEnterPage;
+    private SelenideElement emailPlaceOnEnterPage;
 
     @FindBy(xpath = ".//input[@name='Пароль']")
-    public SelenideElement password;
+    private SelenideElement password;
 
     @FindBy(xpath = ".//button[text()='Войти']")
-    public SelenideElement enterButton;
+    private SelenideElement enterButton;
 
     @FindBy(xpath = ".//a[@href='/forgot-password']")
-    public SelenideElement forgotPasswordLink;
+    private SelenideElement forgotPasswordLink;
 
     @FindBy(className = "Auth_link__1fOlj")
-    public SelenideElement logInRegistrationForm;
+    private SelenideElement logInRegistrationForm;
 
     public void logInRegistrationFormByLink(){
         registrationButtonLink.shouldBe(enabled);
         registrationButtonLink.click();
     }
-    @Step("Ввод емейла на стринце входа в аккаунт")
+    @Step("Ввод email на страинце входа в аккаунт")
     public LoginPage sendEmailOnEnterPage(String email){
         emailPlaceOnEnterPage.setValue(email);
         return this;
@@ -40,7 +42,7 @@ public class LoginPage {
         password.setValue(pass);
         return this;
     }
-    @Step("Нажать Ентер")
+    @Step("Нажать enter")
     public LoginPage clickEnter(){
         enterButton.shouldBe(enabled);
         enterButton.click();
@@ -58,7 +60,7 @@ public class LoginPage {
         logInRegistrationForm.click();
         return this;
     }
-    @Step("Проверка что кнопка входа видна")
+    @Step("Проверка, что кнопка входа видна")
     public boolean getEnter(){
         enterButton.shouldBe(enabled);
         return enterButton.is(visible);
