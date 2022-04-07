@@ -13,9 +13,8 @@ public class AccountPage {
     private SelenideElement exitButton;
 
     @Step("Клик по кнопке выход")
-    public AccountPage exitButtonClick(){
+    public void exitButtonClick(){
         exitButton.shouldBe(Condition.enabled);
         exitButton.click();
-        return this;
     }
 }

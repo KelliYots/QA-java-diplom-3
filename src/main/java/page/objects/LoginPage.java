@@ -2,13 +2,14 @@ package page.objects;
 
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
-import lombok.Getter;
 import org.openqa.selenium.support.FindBy;
 
-import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Condition.enabled;
+import static com.codeborne.selenide.Condition.visible;
 
-@Getter
 public class LoginPage {
+    public static String loginPageUrl = "https://stellarburgers.nomoreparties.site/login";
+
 
     @FindBy(xpath = ".//a[@href='/register']")
     private SelenideElement registrationButtonLink;
@@ -28,40 +29,45 @@ public class LoginPage {
     @FindBy(className = "Auth_link__1fOlj")
     private SelenideElement logInRegistrationForm;
 
-    public void logInRegistrationFormByLink(){
+    public void logInRegistrationFormByLink() {
         registrationButtonLink.shouldBe(enabled);
         registrationButtonLink.click();
     }
+
     @Step("Ввод email на страинце входа в аккаунт")
-    public LoginPage sendEmailOnEnterPage(String email){
+    public LoginPage sendEmailOnEnterPage(String email) {
         emailPlaceOnEnterPage.setValue(email);
         return this;
     }
+
     @Step("Ввод пароля")
-    public LoginPage sendPassword(String pass){
+    public LoginPage sendPassword(String pass) {
         password.setValue(pass);
         return this;
     }
+
     @Step("Нажать enter")
-    public LoginPage clickEnter(){
+    public void clickEnter() {
         enterButton.shouldBe(enabled);
         enterButton.click();
-        return this;
     }
-    @Step("Нажатие на ссылку Забыл пароль")
-    public LoginPage logInForgotPasswordLink(){
+
+    @Step("Клик по ссылке \"Забыл пароль\"")
+    public LoginPage logInForgotPasswordLink() {
         forgotPasswordLink.shouldBe(enabled);
         forgotPasswordLink.click();
         return this;
     }
+
     @Step("Вход через форму регистрации")
-    public LoginPage logInRegistrationForm(){
+    public LoginPage logInRegistrationForm() {
         logInRegistrationForm.shouldBe(enabled);
         logInRegistrationForm.click();
         return this;
     }
+
     @Step("Проверка, что кнопка входа видна")
-    public boolean getEnter(){
+    public boolean getEnter() {
         enterButton.shouldBe(enabled);
         return enterButton.is(visible);
     }

@@ -1,11 +1,12 @@
-import page.objects.LoginPage;
-import page.objects.MainPage;
-import page.objects.RegisterPage;
+import com.codeborne.selenide.Configuration;
 import io.qameta.allure.junit4.DisplayName;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import page.objects.LoginPage;
+import page.objects.MainPage;
+import page.objects.RegisterPage;
 
 import static com.codeborne.selenide.Selenide.*;
 import static org.junit.Assert.assertTrue;
@@ -19,7 +20,8 @@ public class RegistrationTest {
 
     @Before
     public void setup() {
-        System.setProperty("webdriver.chrome.driver", "src/resources/yandexdriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/yandexdriver.exe");
+        Configuration.startMaximized = true;
     }
 
     @After

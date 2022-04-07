@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xmlns="http://maven.apache.org/POM/4.0.0"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>KelliYots.com.github</groupId>
-    <artifactId>praktikum-web-diploma</artifactId>
+    <artifactId>QA-java-diplom-3</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <developers>
@@ -14,22 +14,26 @@
             <name>Arina Kagirova</name>
             <email>murchelot@yandex.ru</email>
         </developer>
+
     </developers>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
+
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
         <aspectj.version>1.9.7</aspectj.version>
-        <allure.version>2.15.0</allure.version>
+        <allure.version>2.17.3</allure.version>
+
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
-            <version>4.4.0</version>
+            <version>4.5.1</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -43,20 +47,25 @@
             <version>${allure.version}</version>
         </dependency>
         <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.9.0</version>
+        </dependency>
+        <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-rest-assured</artifactId>
             <version>${allure.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.codeborne</groupId>
-            <artifactId>selenide</artifactId>
-            <version>5.23.2</version>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>4.1.3</version>
         </dependency>
         <dependency>
-            <groupId>io.github.bonigarcia</groupId>
-            <artifactId>webdrivermanager</artifactId>
-            <version>4.4.3</version>
-            <scope>test</scope>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>6.3.5</version>
+<!--            <scope>compile</scope>-->
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -69,9 +78,11 @@
             <artifactId>javafaker</artifactId>
             <version>1.0.2</version>
         </dependency>
+
     </dependencies>
 
     <build>
+<!--        <pluginManagement>-->
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -112,6 +123,7 @@
                 </configuration>
             </plugin>
         </plugins>
+<!--        </pluginManagement>-->
     </build>
 
 </project>

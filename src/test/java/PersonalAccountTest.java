@@ -1,3 +1,4 @@
+import com.codeborne.selenide.Configuration;
 import page.objects.AccountPage;
 import page.objects.LoginPage;
 import page.objects.MainPage;
@@ -19,7 +20,8 @@ public class PersonalAccountTest {
 
     @Before
     public void setup() {
-        System.setProperty("webdriver.chrome.driver", "src/resources/yandexdriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/yandexdriver.exe");
+        Configuration.startMaximized = true;
         data = user.register();
     }
 
